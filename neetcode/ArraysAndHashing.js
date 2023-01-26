@@ -112,3 +112,95 @@ function validAnagram2 (s, t) {
 
 
 //console.log(validAnagram2(s, t))
+
+/* <------------------------- valid Anagram ----------------------> */
+
+// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+// You can return the answer in any order.
+
+ 
+
+// Example 1:
+
+//nums = [2,7,11,15]
+//target = 9
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+// Example 2:
+
+//let nums = [3,2,4]
+//let target = 6
+// Output: [1,2]
+// Example 3:
+
+//nums = [3,3] 
+//target = 6
+// Output: [0,1]
+ 
+
+// Constraints:
+
+// 2 <= nums.length <= 104
+// -109 <= nums[i] <= 109
+// -109 <= target <= 109
+// Only one valid answer exists.
+ 
+
+// Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+
+//////// this only works if sorted
+const twoSum = (nums, target) => {
+  // two pointers
+  // sort numbers first
+  // while loop, two pointers
+  // check difference against var originally set to infinity
+  // if difference is larger, move left most pointer, if too small move right most pointer
+  // 
+  nums = nums.sort((a, b) => a -b)
+  
+  let diff = Infinity
+  const returner = [];
+
+  let i = 0
+  let j = nums.length -1
+
+  while (i < j) {
+    let checker = nums[i] + nums[j]
+    
+    if(checker === target) {
+      console.log(nums[i], nums[j])
+      return [i, j]
+    }
+    if (checker < target) {
+      i++
+    }
+    else if (checker > target) {
+      j--
+    }
+    
+  }
+  return false
+}
+
+
+
+
+const twoSum2 = (nums, target) => {
+  let diff = Infinity;
+  const returner = [];
+
+  for ( let i = 0; i < nums.length; i++) {
+    for ( let j = i+1; j< nums.length; j++){
+      let sum = nums[i] + nums[j]
+      if(sum === target){
+        return [i, j]
+      }
+    }
+  }
+  return false
+}
+
+//console.log(twoSum2 (nums, target))
