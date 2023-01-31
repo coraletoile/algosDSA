@@ -252,4 +252,30 @@ const groupAnagrams = (strs) =>{
   }
 }
 
+/* <------------------------- sum of highest and lowest ----------------------> */
 
+// Task
+// Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+
+// The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+
+// Mind the input validation.
+
+//let len =[6, 2, 1, 8, 10 ]//=> 16
+let len = [ 1, 1, 11, 2, 3 ] // => 6
+
+const highestLowest = (arr) => {
+
+  arr = arr.sort((a,b) => a - b)
+  console.log(arr)
+  let returner = 0;
+
+  for ( let i = 1; i < arr.length -1; i++) {
+    returner += arr[i]
+  }
+
+  return returner
+
+}
+
+console.log(highestLowest(len))
