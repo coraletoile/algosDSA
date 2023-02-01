@@ -278,4 +278,20 @@ const highestLowest = (arr) => {
 
 }
 
-console.log(highestLowest(len))
+//console.log(highestLowest(len))
+
+/* <------------------------- triangle ----------------------> */
+
+// You are given two interior angles (in degrees) of a triangle.
+
+// Write a function to return the 3rd.
+
+// Note: only positive integers will be tested.
+
+const triangle = (a, b) => {
+
+  return 180 - (a+b)
+
+}
+
+console.log(triangle(45, 45))
