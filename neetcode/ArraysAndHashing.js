@@ -328,4 +328,12 @@ const multiply = (arr) => {
 
 }
 
-console.log(multiply(arr))
+//console.log(multiply(arr))
+
+/* <------------------------- bool ----------------------> */
+
+function boolToWord( bool ){
+  if (bool === true) {return 'Yes'}
+  if (bool === false) {return "No"}
+}
+
