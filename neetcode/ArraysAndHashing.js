@@ -337,3 +337,9 @@ function boolToWord( bool ){
   if (bool === false) {return "No"}
 }
 
+
+/* <-------------------------  ----------------------> */
+
+const getInt = (string) => {
+  return parseInt(string[0])
+}
