@@ -343,3 +343,96 @@ function boolToWord( bool ){
 const getInt = (string) => {
   return parseInt(string[0])
 }
+
+
+/* <------------------------- The Supermarket Queue codewars  ----------------------> */
+
+// DESCRIPTION:
+// There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+
+// input
+// customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+// n: a positive integer, the number of checkout tills.
+// output
+// The function should return an integer, the total time required.
+
+// queueTime([5,3,4], 1)
+// // should return 12
+// // because when there is 1 till, the total time is just the sum of the times
+
+// queueTime([10,2,3,3], 2)
+// // should return 10
+// // because here n=2 and the 2nd, 3rd, and 4th people in the 
+// // queue finish before the 1st person has finished.
+
+// queueTime([2,3,10], 2)
+// // should return 12
+
+
+const queueTime = (arr, till) => {
+  // put the correct index at a till
+  // subtract the following index. if remainder is less than or equal to one:
+  // put next index at the appropriate till
+  // add the next index to total time variable
+
+  let cache = {}
+  let cacheMaker = till
+  let i = 0
+
+  while(cacheMaker > 0){
+    cache[cacheMaker] = arr[i]
+    console.log(cacheMaker)
+    cacheMaker--
+    i++
+  }
+
+  for (let j = i; j < arr.length; j++) {
+
+  }
+
+return cache
+
+
+
+
+
+
+
+}
+
+//console.log(queueTime([10,2,3,3], 6))
+
+// https://www.codewars.com/kata/57b06f90e298a7b53d000a86/train/javascript
+
+
+/* <-------------------------   ----------------------> */
+
+
+// When provided with a number between 0-9, return it in words.
+
+// Input :: 1
+
+// Output :: "One".
+
+const switchNum = (num) => {
+  let cache = {
+    one : 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
+    zero: 0
+  }
+
+  for (let key in cache) {
+    if (cache[key] === num) {
+      return key
+    }
+  }
+}
+
+console.log(switchNum(4))
