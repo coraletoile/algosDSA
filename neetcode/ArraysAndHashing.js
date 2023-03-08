@@ -449,7 +449,7 @@ const grasshopper = (base, factor) => {
 
 }
 
-console.log(grasshopper(10, 2))
+//console.log(grasshopper(10, 2))
 
 /* <-------------------------  grasshopper  ----------------------> */
 
@@ -487,3 +487,37 @@ const areaOrPerimeter = function(l , w) {
   }
   else return l * 2 + w * 2
 };
+
+/* <-------------------------  DNA ----------------------> */
+
+function DNAStrand(dna){
+  if (typeof dna === 'string') {
+    // change string to array
+    // if conditions
+    // change array to string and return
+
+    const dnaArray = dna.split("")
+    console.log(dnaArray)
+    for (let i = 0; i < dnaArray.length; i++){
+      if(dnaArray[i]=== 'A'){
+        dnaArray[i] = 'T'
+      }
+      else if(dnaArray[i] === 'T'){
+        dnaArray[i] = 'A'
+      }
+
+      else if(dnaArray[i] === 'G') {
+        dnaArray[i] = 'C'
+      }
+
+      else if(dnaArray[i] === 'C') {
+        dnaArray[i] = 'G'
+      }
+    }
+    const returner = dnaArray.join("")
+    return returner
+  }
+  return 'bleh'
+}
+
+console.log(DNAStrand('ACTG')) 
