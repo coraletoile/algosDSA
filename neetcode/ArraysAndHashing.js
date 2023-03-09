@@ -520,4 +520,80 @@ function DNAStrand(dna){
   return 'bleh'
 }
 
-console.log(DNAStrand('ACTG')) 
+//console.log(DNAStrand('ACTG')) 
+
+
+/* <-------------------------  Group Anagrams ----------------------> */
+
+// Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+ 
+
+// Example 1:
+
+// Input: strs = ["eat","tea","tan","ate","nat","bat"]
+// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+// Example 2:
+
+// Input: strs = [""]
+// Output: [[""]]
+// Example 3:
+
+// Input: strs = ["a"]
+// Output: [["a"]]
+ 
+
+// Constraints:
+
+// 1 <= strs.length <= 104
+// 0 <= strs[i].length <= 100
+// strs[i] consists of lowercase English letters.
+
+/* <-------------------------   ----------------------> */
+
+// Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+
+// It should remove all values from list a, which are present in list b keeping their order.
+
+// arrayDiff([1,2],[1]) == [2]
+// If a value is present in b, all of its occurrences must be removed from the other:
+
+// arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+function arrayDiff(a, b) {
+
+ 
+
+  for ( let i = 0; i < a.length; i++){
+    console.log('this is a', a[i])
+
+    for ( let j = 0; j < b.length; j++) {
+      if(a[i]==b[j]) {
+        a.splice(i, 1)
+        console.log('cest b',b[j])
+        }
+      }
+    }
+  return a
+  
+}
+
+console.log(arrayDiff([1,2,2,2,3],[2]))
+
+function arrayDiff(a, b) {
+  if(b.length==0 || a.length==0)
+    return a;
+  for(let i =0;i<a.length;i++){
+    for(let j=0;j<b.length;j++){
+      if(a[i]==b[j]){
+        a.splice(i,1);
+        i--;
+      }
+    }
+  }
+  return a;
+}
+
+
