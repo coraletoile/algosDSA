@@ -37,30 +37,28 @@ function isPalindrome (s) {
   let j = s.length-1
 
   while (i < j) {
+    
     let banana = s[i]
     let apple = s[j]
-
-    if(banana.toLowerCase() != banana.toUpperCase() && apple.toLowerCase() != apple.toUpperCase() ) {
-     console.log('this is banana', banana)
-     console.log('this is apple', apple)
-    
-    if(banana.toLowerCase() != apple.toLowerCase()) {
-      return false
-    }
-    if(banana.toLowerCase() === apple.toLowerCase()){
-      console.log('hi')
+    if(!/[a-zA-Z0-9]/.test(banana)) {
       i++
+    } else if (!/[a-zA-Z0-9]/.test(apple)) {
       j--
+    } else { if (banana.toLowerCase() != apple.toLowerCase()) {
+      return false;
     }
   
-    
+      i++
+      j--
   }
 }
   return true
+
 }
 
 
 
-//console.log(isPalindrome("A man, a plan, a canal: Panama"))
-//console.log(isPalindrome("Hannah"))
+
+console.log(isPalindrome("A man, a plan, a canal: Panama"))
+console.log(isPalindrome("Hannah"))
 console.log(isPalindrome("race a car"))
