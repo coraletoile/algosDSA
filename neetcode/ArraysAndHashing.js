@@ -249,4 +249,64 @@ const groupAnagrams = (strs) => {
 
 };
 
-console.log(groupAnagrams(["a"]))
+//console.log(groupAnagrams(["a"]))
+
+/* <------------------------- Top K frequent elements ----------------------> */
+
+// Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,1,1,2,2,3], k = 2
+// Output: [1,2]
+// Example 2:
+
+// Input: nums = [1], k = 1
+// Output: [1]
+
+// write a hashing code
+// store input nums at value of hash key 
+// 
+
+
+const topK = (nums, k) => {
+  map = new Map()
+
+  const hashCode = (number) => {
+    number = number.toString()
+    number = number.charCodeAt(0)
+    return number
+  }
+
+  
+
+  nums.forEach((val) => {
+    let hashKey = hashCode(val)
+    if(!map.has(hashKey)) {
+      map.set(hashKey, [val])
+    } else {
+      map.get(hashKey).push(val)
+    }
+
+  })
+
+  let ans = []
+  let checker = -infinity
+
+  map.forEach((val, key) => {
+    let len = val.length
+    console.log(ans)
+    if( len > checker) {
+      ans.push(val[0])
+
+    }
+  })
+
+  return ans
+
+  
+}
+
+console.log(topK([1,1,1,2,2,3], 2))
