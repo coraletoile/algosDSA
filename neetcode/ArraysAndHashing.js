@@ -293,7 +293,7 @@ const topK = (nums, k) => {
   })
 
   let ans = []
-  let checker = -infinity
+  let checker = -Infinity
 
   map.forEach((val, key) => {
     let len = val.length
@@ -309,4 +309,33 @@ const topK = (nums, k) => {
   
 }
 
-console.log(topK([1,1,1,2,2,3], 2))
+//console.log(topK([1,1,1,2,2,3], 2))
+
+
+const topK2 = (nums, k) => {
+  let store = {}
+  let ans = []
+
+  nums.forEach((el) => {
+    if(!store[el]) {
+      store[el] = 1
+    } else {
+      if(store[el]){
+        store[el] ++
+      }
+    }
+  })
+
+  for (let key in store) {
+    if (store[key] === k) {
+      ans.push(key)
+    }
+  }
+  return ans
+  }
+
+  console.log(topK2([1,1,1,2,2,3], 2))
+
+
+
+// In a pitch black room you have a drawer with 27 black socks, 18 gray socks, and 9 navy socks. The socks are all individual. What is the minimum number of socks you have to pull out of the drawer to guarantee you have a pair of socks that match that are not navy? Please describe in detail how you arrived at that answer.
