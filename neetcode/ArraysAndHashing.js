@@ -334,8 +334,70 @@ const topK2 = (nums, k) => {
   return ans
   }
 
-  console.log(topK2([1,1,1,2,2,3], 2))
+  //console.log(topK2([1,1,1,2,2,3], 2))
+
+  var topKFrequent = function(nums, k) {
+    let frequency = {}
+    for( let i = 0; i < nums.length; i++){
+        if(frequency[(nums[i])]){
+           frequency[nums[i]] += 1;
+        } else {frequency[nums[i]] = 1;
+        }
+       
+    }
+    let result = Object.keys(frequency).map((key) => [Number(key), frequency[key]]);
+    console.log(result)
+    let sortedResult = result.sort((a,b) => {
+        return b[1]-a[1]
+    })
+    console.log(sortedResult)
+    let output = []
+    for ( let i = 0; i < k; i++){
+        output.push(sortedResult[i][0])
+    }
+    return output;
+};
+
+//console.log(topKFrequent([1,1,1,2,2,3], 2))
+
+
+const topK3 = (nums, k) => {
+  // first get a object of frequencies and number itself
+  let store = {}
+  
+
+  nums.forEach((el) => {
+    if(!store[el]) {
+      store[el] = 1
+    } else {
+      if(store[el]){
+        store[el] ++
+      }
+    }
+  })
+
+  //create hash map of key and frequency
+
+  const mapper = Object.keys(store).map((key) => [Number(key), store[key]])
+
+  // sort the hashmap so largest frequency is first
+  let mapperSorted = mapper.sort((a,b) => {
+    return b[1] -a[1]
+  })
+  
+//iterate over the map for k rounds to get the top frequencies
+  let ans = []
+  
+
+  for ( let i = 0; i < k; i++) {
+    ans.push(mapperSorted[i][0])
+  }
+
+ return ans
+
+}
+ console.log(topK3([1,1,1,2,2,3], 2))
 
 
 
-// In a pitch black room you have a drawer with 27 black socks, 18 gray socks, and 9 navy socks. The socks are all individual. What is the minimum number of socks you have to pull out of the drawer to guarantee you have a pair of socks that match that are not navy? Please describe in detail how you arrived at that answer.
+
