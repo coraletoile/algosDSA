@@ -335,7 +335,7 @@ const topK2 = (nums, k) => {
   }
 
   //console.log(topK2([1,1,1,2,2,3], 2))
-
+////////////////////// answer is topKFrequent /////////////////
   var topKFrequent = function(nums, k) {
     let frequency = {}
     for( let i = 0; i < nums.length; i++){
@@ -396,7 +396,47 @@ const topK3 = (nums, k) => {
  return ans
 
 }
- console.log(topK3([1,1,1,2,2,3], 2))
+ //console.log(topK3([1,1,1,2,2,3], 2))
+
+ /* <------------------------- Product of Array except self ----------------------> */
+
+//  Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+//  The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+//  You must write an algorithm that runs in O(n) time and without using the division operation.
+ 
+  
+ 
+//  Example 1:
+ 
+//  Input: nums = [1,2,3,4]
+//  Output: [24,12,8,6]
+//  Example 2:
+ 
+//  Input: nums = [-1,1,0,-3,3]
+//  Output: [0,0,9,0,0]
+
+
+//
+
+const xOfArray = (nums) => {
+  //loop within loop
+  let obj = {}
+  let arr = []
+  let product = 1
+
+  for ( let i = 0; i < nums.length; i ++) {
+    product *= nums[i]
+    console.log(product)
+  }
+
+  for ( let j = 0; j < nums.length; j++){
+    arr.push(product / nums[j])
+    
+  }
+  return arr
+}
+
+console.log(xOfArray([1,2,3,4]))
 
 
 
