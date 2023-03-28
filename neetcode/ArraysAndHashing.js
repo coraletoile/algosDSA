@@ -441,7 +441,35 @@ const xOfArray = (nums) => {
   return arr
 }
 
-console.log(xOfArray([1,2,3,4]))
+// Time: O(N)
+//Space: 
+
+//console.log(xOfArray([1,2,3,4]))
+
+//official answer:
+function productExceptSelf(nums) {
+  const result = [];
+  let prefix = 1;
+  let postfix = 1;
+  
+  for (let i = 0; i < nums.length; i++) {
+      result[i] = prefix;
+      console.log('prefix1', prefix)
+      prefix *= nums[i];
+      console.log('prefix2', prefix)
+  }
+  console.log(sortedResult)
+  for (let i = nums.length - 2; i >= 0; i--) {
+      postfix *= nums[i + 1];
+      result[i] *= postfix;
+  }
+  
+  return result;
+};
+
+console.log(productExceptSelf([1,2,3,4]))
+
+
 
 
 
