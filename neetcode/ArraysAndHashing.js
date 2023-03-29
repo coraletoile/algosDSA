@@ -449,16 +449,45 @@ const xOfArray = (nums) => {
 //official answer:
 function productExceptSelf(nums) {
   const result = [];
+  let left = 1;
+  let right = 1;
+  
+  for (let i = 0; i < nums.length; i++) {
+      result[i] = left;
+      
+      left *= nums[i];
+      console.log('left', left)
+  }
+  
+  for (let i = nums.length - 1; i >= 0; i--) {
+      
+      result[i] *= right;
+      right *= nums[i];
+  }
+  
+  return result;
+};
+
+console.log(productExceptSelf([1,2,3,4]))
+
+// read this: https://dev.to/akhilpokle/product-of-array-except-self-a-mind-boggling-google-interview-question-1en1
+
+/**
+ * Array
+ * Time O(N) | Space O(N)
+ * https://leetcode.com/problems/product-of-array-except-self/
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+function productExceptSelfAns(nums) {
+  const result = [];
   let prefix = 1;
   let postfix = 1;
   
   for (let i = 0; i < nums.length; i++) {
       result[i] = prefix;
-      console.log('prefix1', prefix)
       prefix *= nums[i];
-      console.log('prefix2', prefix)
   }
-  console.log(sortedResult)
   for (let i = nums.length - 2; i >= 0; i--) {
       postfix *= nums[i + 1];
       result[i] *= postfix;
@@ -467,8 +496,7 @@ function productExceptSelf(nums) {
   return result;
 };
 
-console.log(productExceptSelf([1,2,3,4]))
-
+console.log(productExceptSelfAns([1,2,3,4]))
 
 
 
