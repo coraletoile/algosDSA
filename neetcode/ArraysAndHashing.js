@@ -463,12 +463,13 @@ function productExceptSelf(nums) {
       
       result[i] *= right;
       right *= nums[i];
+      console.log('right', right)
   }
   
   return result;
 };
 
-console.log(productExceptSelf([1,2,3,4]))
+//console.log(productExceptSelf([1,2,3,4]))
 
 // read this: https://dev.to/akhilpokle/product-of-array-except-self-a-mind-boggling-google-interview-question-1en1
 
@@ -496,7 +497,7 @@ function productExceptSelfAns(nums) {
   return result;
 };
 
-console.log(productExceptSelfAns([1,2,3,4]))
+console.log(productExceptSelf([3,4,5,6]))
 
 
 
