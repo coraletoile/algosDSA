@@ -271,7 +271,7 @@ var addTwoNumbers = function(l1, l2) {
     
 };
 
-console.log(addTwoNumbers(arr1, arr2))
+//console.log(addTwoNumbers(arr1, arr2))
 
 // iterate through linkedlist and grab all the nums into a string
 // reverse the strings. change to numbers
@@ -280,6 +280,44 @@ console.log(addTwoNumbers(arr1, arr2))
 //return array
 
 //review https://leetcode.com/problems/add-two-numbers/solutions/3149937/simple-js-solution-o-max-m-n-time-o-max-m-n-space/?languageTags=javascript
+
+//longest palidrome substring
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+
+  let pointer1 = 0
+  let pointer2 = 1
+
+  let returner = ""
+
+  while (pointer2 < s.length) {
+    
+    if( s[pointer1] == s[pointer2]) {
+      
+      returner += s.slice(pointer1, pointer2)
+      pointer2++
+    }
+    else {
+    pointer1++
+    pointer2++
+    }
+  }
+  
+
+  return returner
+
+  
+    
+};
+
+console.log(longestPalindrome('baba'))
+
+//sliding window
+// each iteration, change size of window
+// if first and last of window don't match, return first to second to last of string
 
 
 
