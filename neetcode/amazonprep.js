@@ -282,6 +282,7 @@ var addTwoNumbers = function(l1, l2) {
 //review https://leetcode.com/problems/add-two-numbers/solutions/3149937/simple-js-solution-o-max-m-n-time-o-max-m-n-space/?languageTags=javascript
 
 //longest palidrome substring
+//Unfinished
 /**
  * @param {string} s
  * @return {string}
@@ -297,11 +298,11 @@ var longestPalindrome = function(s) {
     
     if( s[pointer1] == s[pointer2]) {
       
-      returner += s.slice(pointer1, pointer2)
+      returner += s.slice(pointer1, pointer2+1)
       pointer2++
     }
     else {
-    pointer1++
+    //pointer1++
     pointer2++
     }
   }
@@ -313,20 +314,97 @@ var longestPalindrome = function(s) {
     
 };
 
-console.log(longestPalindrome('baba'))
+//console.log(longestPalindrome('bababa'))
 
 //sliding window
 // each iteration, change size of window
 // if first and last of window don't match, return first to second to last of string
 
+////////////// Best time to buy and sell stock ////////////////////
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+ 
+
+// Example 1:
+
+// Input: prices = [7,1,5,3,6,4]
+// Output: 5
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+// Example 2:
+
+// Input: prices = [7,6,4,3,1]
+// Output: 0
+// Explanation: In this case, no transactions are done and the max profit = 0.
 
 
 
 
+function bestTime (arr) {
+  let max = -Infinity
 
+  for ( let i = 0; i < arr.length; i ++) {
+    for (let j = 1; j < arr.length; j++) {
+      if( arr[i] < arr[j]){
+      let profit = arr[j] -arr[i]
+      if( profit > max) {
+        max = profit
+        }
+      }
+    }
+  }
+  if (max < 0) return 0
+  return max
+}
 
+//console.log(bestTime([7,6,4,3,1]))
 
+function maxProfit(prices) {
 
+  let left = 0;
+  let right = 1
+  let maxProfit = 0;
+
+  while( right < prices.length) {
+    if(prices[left] < prices[right]) {
+      //console.log(prices[left], prices[right])
+      let profit = prices[right] - prices[left]
+      maxProfit = Math.max(maxProfit, profit)
+      console.log(maxProfit)
+    } else {
+      left++
+      console.log(left, right)
+    }
+    right ++
+    console.log('left',left,'right',right)
+  }
+  return maxProfit
+  
+
+}
+
+//console.log(maxProfit([7,1,5,3,6,4])) //3,2,5,7,1,9]
+//console.log(maxProfit([3,2,5,7,1,9]))
+
+var maxProfit2 = function(prices) {
+  let profit = 0;
+  let highest = 0;
+
+  for (let i = prices.length-1; i >= 0; i--)
+  {
+      if (prices[i]>highest) highest = prices[i]
+      console.log(highest)
+      if (highest-prices[i]>profit) profit = highest-prices[i];
+      console.log('profit', profit)
+  }
+  return profit;
+};
+
+console.log(maxProfit2([7,6,4,3,1]))
 
 
 
